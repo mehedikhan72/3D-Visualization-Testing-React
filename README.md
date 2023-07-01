@@ -10,7 +10,7 @@ I have two globes in this react app. One showing recent earthquakes and the othe
 Recent earthquakes happening around the world.
 <br />
 <div align="center">
-  <a href="https://mehedikhan72.github.io/3d/earthquake/"><img src="./readme-images/earthquake.png" alt="Image Description"></a>
+  <img src="./readme-images/earthquake.png" alt="Image Description">
 </div>
 <br />
 
@@ -18,7 +18,7 @@ Recent earthquakes happening around the world.
 Population density of the countries of the world, though the data is not very recent.
 <br />
 <div align="center">
-  <a href="https://mehedikhan72.github.io/3d/population-density/"><img src="./readme-images/population-density.png" alt="Image Description"></a>
+  <img src="./readme-images/population-density.png" alt="Image Description">
 </div>
 <br />
 

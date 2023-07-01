@@ -20,7 +20,6 @@ export default function Earthquake() {
       .then((response) => response.json())
       .then((data) => {
         setQuake(data.features);
-        console.log(data);
         setLoading(false);
       });
   }, []);
