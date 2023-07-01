@@ -12,7 +12,7 @@ function App() {
         Click{" "}
         <Link
           className="underline text-indigo-500"
-          to={{ pathname: "/points-data/" }}
+          to={{ pathname: "/3d/earthquake/" }}
         >
           here
         </Link>{" "}
@@ -22,15 +22,15 @@ function App() {
         Click{" "}
         <Link
           className="underline text-indigo-500"
-          to={{ pathname: "/population-density/" }}
+          to={{ pathname: "/3d/population-density/" }}
         >
           here
         </Link>{" "}
         to see the population density data
       </p>
       <Routes>
-        <Route path="/population-density/" element={<PopulationDensity />} />
-        <Route path="/points-data/" element={<Earthquake />} />
+        <Route path="/3d/population-density/" element={<PopulationDensity />} />
+        <Route path="/3d/earthquake/" element={<Earthquake />} />/3d
       </Routes>
     </div>
   );

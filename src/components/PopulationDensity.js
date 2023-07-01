@@ -8,17 +8,6 @@ export default function PopulationDensity() {
   const [hoverD, setHoverD] = useState();
   const [loading, setLoading] = useState(true);
 
-  const fetchGeoJson = () => {
-    fetch("/3D-Visualization-Testing-React/data/data-w-area.geojson")
-      .then((response) => response.json())
-      .then(setCountries);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchGeoJson();
-  }, []);
-
   const colorScale = d3.scaleSequentialSqrt(d3.interpolateYlOrRd);
 
   const calculatePopulationDensity = (population, area) => {
@@ -43,6 +32,19 @@ export default function PopulationDensity() {
   );
 
   colorScale.domain([0, maxVal]);
+
+  const fetchGeoJson = () => {
+    fetch("/3D-Visualization-Testing-React/data/data-w-area.geojson")
+      .then((response) => response.json())
+      .then(setCountries);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    fetchGeoJson();
+  }, []);
 
   return (
     <div className="fixed top-0 left-0">

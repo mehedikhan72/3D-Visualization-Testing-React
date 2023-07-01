@@ -1,4 +1,7 @@
 # 3D visualization in React
+
+## The site is live at [https://mehedikhan72.github.io/3D-Visualization-Testing-React/](https://mehedikhan72.github.io/3D-Visualization-Testing-React/)
+
 Showing geo data on a 3D globe is really fulfilling so I tried out this awesome library called [react-globe.gl](https://github.com/vasturiano/react-globe.gl).
 
 I have two globes in this react app. One showing recent earthquakes and the other one showing the population density of the countries of the world. The first one was straight-forward to implement but the second one was a bit tricky. I had to use an external API to write 'area' data to the geojson file and then use that file to render the globe using d3 to get the corresponding colors.
@@ -7,7 +10,7 @@ I have two globes in this react app. One showing recent earthquakes and the othe
 Recent earthquakes happening around the world.
 <br />
 <div align="center">
-  <img src="./readme-images/earthquake.png" alt="Image Description">
+  <a href="https://mehedikhan72.github.io/3d/earthquake/"><img src="./readme-images/earthquake.png" alt="Image Description"></a>
 </div>
 <br />
 
@@ -15,7 +18,7 @@ Recent earthquakes happening around the world.
 Population density of the countries of the world, though the data is not very recent.
 <br />
 <div align="center">
-  <img src="./readme-images/population-density.png" alt="Image Description">
+  <a href="https://mehedikhan72.github.io/3d/population-density/"><img src="./readme-images/population-density.png" alt="Image Description"></a>
 </div>
 <br />
 
