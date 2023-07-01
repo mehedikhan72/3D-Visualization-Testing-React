@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Globe from "react-globe.gl";
 import { scaleLinear } from "d3";
+import Loading from "./Loading";
 
 export default function Earthquake() {
   const [quake, setQuake] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -19,6 +21,7 @@ export default function Earthquake() {
       .then((data) => {
         setQuake(data.features);
         console.log(data);
+        setLoading(false);
       });
   }, []);
 
@@ -29,18 +32,20 @@ export default function Earthquake() {
 
   return (
     <div className="fixed top-0 left-0">
-      <Globe
-        hexBinPointsData={quake}
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-        hexBinPointLng={(d) => d.geometry.coordinates[0]}
-        hexBinPointLat={(d) => d.geometry.coordinates[1]}
-        hexBinPointWeight={(d) => d.properties.mag}
-        hexBinResolution={4}
-        hexAltitude={({ sumWeight }) => sumWeight * 0.005}
-        hexTopColor={(d) => weightColor(d.sumWeight)}
-        hexSideColor={(d) => weightColor(d.sumWeight)}
-        hexLabel={(d) => `
+      {loading && <Loading />}
+      {!loading && (
+        <Globe
+          hexBinPointsData={quake}
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+          backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+          hexBinPointLng={(d) => d.geometry.coordinates[0]}
+          hexBinPointLat={(d) => d.geometry.coordinates[1]}
+          hexBinPointWeight={(d) => d.properties.mag}
+          hexBinResolution={4}
+          hexAltitude={({ sumWeight }) => sumWeight * 0.005}
+          hexTopColor={(d) => weightColor(d.sumWeight)}
+          hexSideColor={(d) => weightColor(d.sumWeight)}
+          hexLabel={(d) => `
         <b>${d.points.length}</b> earthquakes in the past month:<ul><li>
           ${d.points
             .slice()
@@ -49,7 +54,8 @@ export default function Earthquake() {
             .join("</li><li>")}
         </li></ul>
       `}
-      />
+        />
+      )}
     </div>
   );
 }
